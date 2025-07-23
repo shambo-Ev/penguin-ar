@@ -1,41 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>KT Penguin AR</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar-nft.min.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
-      #info {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        color: white;
-        z-index: 999;
-        font-family: sans-serif;
-      }
     </style>
   </head>
   <body>
-    <div id="info">Allow camera access to see KT the Penguin 🐧</div>
-
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
       renderer="logarithmicDepthBuffer: true;"
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;"
     >
       <a-assets>
-        <a-asset-item id="ktModel" src="emperor_penguin.glb"></a-asset-item>
+        <a-asset-item id="kt" src="emperor_penguin.glb"></a-asset-item>
       </a-assets>
 
       <a-entity
-        gltf-model="#ktModel"
+        gltf-model="#kt"
         position="0 0 -2"
         scale="0.5 0.5 0.5"
-        rotation="0 0 0">
-      </a-entity>
+        rotation="0 180 0"
+      ></a-entity>
 
       <a-camera-static></a-camera-static>
     </a-scene>
